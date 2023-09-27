@@ -9,23 +9,25 @@ using namespace std;
 class Solution{
   public:
     vector<int> printClosest(int arr[], int brr[], int n, int m, int x) {
-       int a = 0, b = 0, minDiff = INT_MAX;
-        int i = 0, j = m - 1; // Initialize pointers for arr and brr
-
-        while (i < n && j >= 0) 
-        {
-            int sum = arr[i] + brr[j];
-            int diff = abs(x - sum);
-
-            if (diff < minDiff) 
-            {
-                a = arr[i];
-                b = brr[j];
-                minDiff = diff;
+        vector<int> ans;
+        int i=0;
+        int j=m-1;
+        int closest_diff=INT_MAX;
+        int element1,element2;
+        while(i<n and j>=0){
+            int sum=arr[i]+brr[j];
+            if(abs(x-sum)<closest_diff){
+                closest_diff=abs(x-sum);
+                element1=arr[i];
+                element2=brr[j];
             }
-            (sum < x)?i++:j--; 
+            if(sum>x){
+                j--;
+            }else{
+                i++;
+            }
         }
-        return {a, b};
+    return {element1,element2};
     }
 };
 
