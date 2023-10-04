@@ -35,6 +35,33 @@ class Solution {
             }
         }
         return ans;
+
+
+
+
+
+
+        // Approach - 02 (Unordered_Map)
+  
+       unordered_map<char,int> umap{
+          {'M',1000},
+          {'D',500},
+          {'C',100},
+          {'L',50},
+          {'X',10},
+          {'V',5},
+          {'I',1},
+      };
+      int answer=0;
+      for(int i=0;i<size(s);i++){
+          if(umap[s[i]]<umap[s[i+1]]){
+              answer-=umap[s[i]];
+          }
+          else{
+              answer+=umap[s[i]];
+          }
+      }
+      return answer;
     }
 };
 
