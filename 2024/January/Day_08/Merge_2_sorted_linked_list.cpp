@@ -198,4 +198,44 @@ int main()
     }
 }
 
-// } Driver Code Ends
+
+
+
+// Easy Approach
+class Solution
+{
+    public:
+    struct Node* reverse(Node* head){
+        struct Node* current=head;
+        struct Node* nextt=NULL;
+        struct Node* prev=NULL;
+        while(current){
+            nextt=current->next;
+            current->next=prev;
+            prev=current;
+            current=nextt;
+        }
+    return prev;
+    }
+    struct Node* Merge(Node* head1,Node* head2){
+        if(head1==NULL){
+            return head2;
+        }
+        if(head2==NULL){
+            return head1;
+        }
+        if(head1->data<=head2->data){
+            head1->next=Merge(head1->next,head2);
+            return head1;
+        }else{
+            head2->next=Merge(head1,head2->next);
+            return head2;
+        }
+    }
+    struct Node *mergeResult(Node *head1,Node *head2)
+    {
+        struct Node* head=Merge(head1,head2);
+        head=reverse(head);
+        return head;
+    }
+};
