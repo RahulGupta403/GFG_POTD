@@ -1,6 +1,6 @@
 // Simple Approach maintain an adjacency list and do Depth FIrst Travesal and check if all nodes are visited or not.:-)
 class Solution {
-  public:
+public:
     void dfs(vector<int>adj[],int node,vector<int>&visited){
         visited[node]=1;
         for(auto &it:adj[node]){
