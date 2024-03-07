@@ -1,5 +1,3 @@
-#User function Template for python3
-
 class Solution:
     def search(self, pattern, text):
         n,m=len(text),len(pattern)
